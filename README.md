@@ -19,3 +19,6 @@ This is a ReactJS application that allows users to browse products and add them 
 1. Clone the repo:
    ```bash
    git clone <repo-url>
+
+
+![image](https://github.com/user-attachments/assets/3e7bc2ca-71ed-4f64-b2c9-f429e5d1ced7)
