@@ -7,7 +7,9 @@ const Product = ({ product, handleAddToCart }) => {
       <h3 className="text-lg mt-2">{product.title}</h3>
       <div className="flex items-center justify-between pb-10 ">
       <p className="text-sm text-gray-500 py-4 md:py-8">${product.price}</p>
-      <p>{product.rating.rate}</p>
+      <p className='flex items-center gap-1'>{product.rating.rate}<span className="material-symbols-outlined">
+star
+</span></p>
 
       </div>
       
