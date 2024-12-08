@@ -1,32 +1,54 @@
-import React, { useEffect, useState } from 'react'
-import MainData from './coomponentes/heroData';
+import React, { useState, useEffect } from 'react';
+import Navbar from './Component/Navbar';
+import Product from './Component/Product';
+import CartModal from './Component/CartModal';
 
 const App = () => {
-
-
-  const [post , setpost] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((respon) => {
-        return respon.json();
-      })
+    const fetchProducts = async () => {
+      const response = await fetch('https://fakestoreapi.com/products');
+      const data = await response.json();
+      setProducts(data);
+    };
+    fetchProducts();
+  }, []);
 
-      .then((data) => {
-        setpost(data);    
-      })
-      .catch((error)=>{
-        console.log(error);
-      })
+  const handleAddToCart = (product) => {
+    if (!cart.some((item) => item.id === product.id)) {
+      setCart([...cart, product]);
+    } else {
+      alert('Item already added to the cart');
+    }
+  };
 
-  },[]);
+  const handleRemoveFromCart = (productId) => {
+    setCart(cart.filter((item) => item.id !== productId));
+  };
 
-  return <>
+  const openCartModal = () => {
+    setIsModalOpen(true);
+  };
 
-    <MainData data={post}/>
-  </>
+  const closeCartModal = () => {
+    setIsModalOpen(false);
+  };
 
+  return (
+    <div className="App">
+      <Navbar cart={cart} openCartModal={openCartModal} />
+      <div className="products grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+        {products.map((product) => (
+          <Product key={product.id} product={product} handleAddToCart={handleAddToCart} />
+        ))}
+      </div>
 
-}
+      {isModalOpen && <CartModal cart={cart} handleRemoveFromCart={handleRemoveFromCart} closeCartModal={closeCartModal} />}
+    </div>
+  );
+};
 
 export default App;
