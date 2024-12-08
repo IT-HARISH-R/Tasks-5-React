@@ -2,8 +2,8 @@ import React from 'react';
 
 const CartModal = ({ cart, handleRemoveFromCart, closeCartModal }) => {
   return (
-    <div className="modal fixed  top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex items-center justify-center">
-      <div className="modal-content w-full bg-white p-6 rounded-md h-full py-24">
+    <div className="modal  fixed  top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex items-center justify-center">
+      <div className="modal-content container mx-auto p-10 w-full bg-white p-6 rounded-md h-full py-24">
         <h2 className="text-xl font-semibold mb-4">Your Cart</h2>
         <button onClick={closeCartModal} className="text-red-500 mb-4">Close</button>
         <div className="cart-items space-y-4">

@@ -13,6 +13,7 @@ const App = () => {
       const response = await fetch('https://fakestoreapi.com/products');
       const data = await response.json();
       setProducts(data);
+
     };
     fetchProducts();
   }, []);
@@ -40,7 +41,7 @@ const App = () => {
   return (
     <div className="App">
       <Navbar cart={cart} openCartModal={openCartModal} />
-      <div className="container mx-auto pt-40 products grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+      <div className="container mx-auto pt-40 products grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 ">
         {products.map((product) => (
           <Product key={product.id} product={product} handleAddToCart={handleAddToCart} />
         ))}
