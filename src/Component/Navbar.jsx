@@ -7,7 +7,7 @@ const Navbar = ({ cart, openCartModal }) => {
 
       <h1 className="text-lg">Product Store</h1>
       <button onClick={openCartModal} className="bg-blue-500 px-4 py-2 rounded-md">
-        Cart ({cart.length})
+        Cart {cart.length}
       </button>
      </div>
     </nav>
