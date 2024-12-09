@@ -14,7 +14,7 @@ const CartModal = ({ cart, handleRemoveFromCart, closeCartModal }) => {
             <p className='text-center pt-20 font-bold text-3xl'>Your cart is empty</p>
           ) : (
             cart.map((item) => (
-              <div className="product w-[800px] mx-auto p-4 border rounded-md shadow-md relative pt-8">
+              <div className="product md:w-[700px] mx-auto p-4 border rounded-md shadow-md relative pt-8">
                 <img src={item.image} alt={item.title} className="w-auto mx-auto h-48 object-fill" />
                 <h3 className="text-lg mt-2">{item.title}</h3>
                 <div className="flex items-center justify-between pb-10 ">
